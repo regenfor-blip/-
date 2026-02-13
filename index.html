@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анимированная валентинка</title>
+    <style>
+        * {box-sizing: border-box;}
+        body {
+            background-color: #ffdbeb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+            border: none;
+            background-color: #f08080;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        button:hover {
+            transform: scale(1.05);
+        }
+        
+        .message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0); /* Начальное состояние */
+            opacity: 0;
+            color: darkred; /* Темно-красный цвет текста */
+            font-size: 1.8rem; /* Удобный размер шрифта */
+            letter-spacing: 2px;
+            text-align: center;
+            max-width: 600px; /* Максимальная ширина блока */
+            line-height: 1.5; /* Межстрочный интервал */
+            transition: all 0.5s cubic-bezier(.4,.6,.2,1.2);
+        }
+        
+        .visible {
+            transform: translate(-50%, -50%) scale(1); /* Нормализуем масштаб */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка -->
+    <button id="btnShow" onclick="showMessage()">НАЖМИ!!</button>
+    
+    <!-- Текст приветствия -->
+    <div id="message" class="message">
+        🌷💐💛 Дорогая мама, мое солнышко! 🍀🎂<br><br>
+        Бесконечно благодарен тебе за каждую минуту нашей совместной жизни. Благодаря тебе я чувствую себя защищённым, любимым и вдохновленным двигаться вперёд.<br><br>
+        Хочется пожелать тебе крепкого здоровья, искренних улыбок и спокойствия души. Пусть судьба подарит тебе чудесные встречи, яркие впечатления и тёплые воспоминания.<br><br>
+        Ценю каждое мгновение с тобой люблю тебя очень сильно! ❤️🧡
+    </div>
+
+    <script>
+        function showMessage() {
+            const btn = document.getElementById('btnShow'); // Получаем кнопку
+            const messageDiv = document.getElementById('message'); // Получаем элемент с сообщением
+            
+            // Прячем кнопку
+            btn.style.display = 'none';
+            
+            // Показываем сообщение
+            messageDiv.classList.add('visible');
+        }
+    </script>
+</body>
+</html>
